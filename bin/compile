@@ -11,7 +11,7 @@ cd Python-3.6.2
 ./configure
 make
 make altinstall prefix=~/python
-python --version
+echo python --version
 
 export BUILDPACK_DIR=`dirname $(readlink -f ${BASH_SOURCE%/*})`
 export DEPS_DIR="$BUILD_DIR/.cloudfoundry"
