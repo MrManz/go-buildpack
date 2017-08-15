@@ -4,6 +4,16 @@ set -e
 
 build=$(cd "$1/" && pwd)
 
+echo "Try installing Python"
+mkdir -p ~/python
+wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
+tar xvzf Python-3.6.2.tgz
+cd Python-3.6.2
+./configure
+make
+make altinstall prefix=~/python
+python --version
+
 if test -f "$build/Godeps/Godeps.json" ||
    test -f "$build/vendor/vendor.json"  || # govendor vendor.json file ||
    test -f "${build}/glide.yaml" || # glide
